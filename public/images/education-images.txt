@@ -1,0 +1,8 @@
+Add your academic images here using these filenames:
+
+- education-satit.jpg
+- education-siit.jpg
+- education-exchange.jpg
+
+Location:
+/Users/naphattraa/Documents/GitHub/naphattra_cv/public/images/
