@@ -241,7 +241,7 @@ export default function Home() {
           <div className="footer-phone">+ (66) 952202141</div>
           <div className="footer-links">
             <p>Email: naphattra@email.com</p>
-            <p>LinkedIn: linkedin.com/in/yourname</p>
+            <p>LinkedIn: linkedin.com/in/naphattraa</p>
             <p>GitHub: github.com/naphattraa1</p>
           </div>
         </footer>
