@@ -13,6 +13,9 @@ type EducationItem = {
     phase: string;
     title: string;
     description: string;
+    imagePath?: string;
+    containImage?: boolean;
+    imagePosition?: string;
   }[];
 };
 
@@ -21,32 +24,29 @@ const educationItems: EducationItem[] = [
     id: "satit",
     title: "SATIT KASET IP",
     summary:
-      "Early academic training shaped a structured approach to research, communication, and continuous learning.",
+      "An early foundation shaped through competition, teamwork, and hands-on problem solving in both technical and collaborative settings.",
     details: [
-      "Built a strong academic foundation through rigorous study and communication practice.",
-      "Learned to combine disciplined coursework with self-driven exploration.",
-      "Developed habits of consistency, curiosity, and long-term growth.",
+      "Built confidence through competitive robotics and public presentation.",
+      "Developed precision, execution, and real-time problem-solving under pressure.",
+      "Strengthened teamwork, collaboration, and communication through team-based competition.",
     ],
     imagePath: "/images/education-satit.jpg",
     imageLabel: "Add Satit Kaset image",
     timeline: [
       {
         phase: "Stage 01",
-        title: "Academic Foundation",
+        title: "World Robot Olympiad",
         description:
-          "Built a strong study routine through structured coursework, presentation practice, and consistent academic discipline.",
+          "Robot Performance – 3rd Place. Designed and programmed a competitive robotics system, focusing on execution, precision, and real-time problem-solving in a dynamic environment.",
+        imagePath: "/images/wro.JPG",
       },
       {
         phase: "Stage 02",
-        title: "Independent Growth",
+        title: "World Robot Olympiad",
         description:
-          "Learned to balance formal study with self-driven exploration, shaping a more thoughtful and resilient learning process.",
-      },
-      {
-        phase: "Stage 03",
-        title: "Long-Term Habits",
-        description:
-          "Developed consistency, curiosity, and a habit of steady improvement that carried into later academic and creative work.",
+          "Core Values – 1st Place. Recognized for outstanding teamwork, collaboration, and project presentation, demonstrating strong communication and team dynamics.",
+        imagePath: "/images/wro1.JPG",
+        imagePosition: "center 28%",
       },
     ],
   },
@@ -54,32 +54,50 @@ const educationItems: EducationItem[] = [
     id: "siit",
     title: "SIIT",
     summary:
-      "Foundations in engineering systems, data, and product thinking across technical coursework and practical projects.",
+      "A broader university journey shaped through technical study, public presentation, teamwork, and student-led campus activities.",
     details: [
-      "Developed a structured engineering mindset through interdisciplinary study.",
-      "Worked across systems thinking, data logic, and project-based delivery.",
-      "Built the academic base that shaped later technical and product-oriented work.",
+      "Built confidence through public-facing performances and faculty representation.",
+      "Developed teamwork, discipline, and adaptability across large-scale student activities.",
+      "Gained hands-on experience in customer interaction, entrepreneurship, and formal technical presentation.",
     ],
     imagePath: "/images/education-siit.jpg",
     imageLabel: "Add SIIT image",
     timeline: [
       {
         phase: "Stage 01",
-        title: "Systems Thinking",
+        title: "SIIT Open House",
         description:
-          "Built a structured engineering mindset through interdisciplinary learning across technical subjects and analytical problem solving.",
+          "Performed as a member of the SIIT cheerleading team during the Open House event, representing the faculty to prospective students and visitors. Strengthened confidence, stage presence, and the ability to communicate energy and identity through performance.",
+        imagePath: "/images/openhouse.JPG",
       },
       {
         phase: "Stage 02",
-        title: "Applied Coursework",
+        title: "Freshy Games 2022",
         description:
-          "Worked across systems logic, data understanding, and project-based exercises that connected theory to practical delivery.",
+          "Performed as part of the SIIT cheerleading team in a large-scale university sports event. Developed strong teamwork, discipline, and the ability to perform under pressure through coordinated group performance.",
+        imagePath: "/images/freshygame.JPG",
       },
       {
         phase: "Stage 03",
-        title: "Technical Direction",
+        title: "SIIT Back to School Market",
         description:
-          "Formed the academic base that later shaped product thinking, technical execution, and a broader interest in digital systems.",
+          "Participated as a seller in a campus market event, managing product sales, customer interaction, and on-site operations. Gained hands-on experience in entrepreneurship, pricing decisions, and real-time customer engagement.",
+        imagePath: "/images/siitbacktoschool.JPG",
+      },
+      {
+        phase: "Stage 04",
+        title: "Senior Project Presentation",
+        description:
+          "Participated in the Senior Project Presentation and Graduation Camp, presenting technical work in a formal academic setting. Developed the ability to communicate complex systems clearly, combining technical understanding with structured presentation.",
+        imagePath: "/images/seniorproject.JPG",
+      },
+      {
+        phase: "Stage 05",
+        title: "Thammasat Startup Competition",
+        description:
+          "Developed HEATGUARD, an AI-powered heat detection system designed to prevent heat stroke in outdoor environments using thermal sensing, computer vision, and real-time risk prediction. Selected as one of the top 30 teams out of 100, demonstrating strong ability to integrate technology, system design, and business thinking into a real-world solution.",
+        imagePath: "/images/thammasatstartup.png",
+        containImage: true,
       },
     ],
   },
@@ -188,7 +206,10 @@ export function EducationSection() {
             </div>
             <div className="education-timeline">
               {activeItem.timeline.map((entry, index) => (
-                <article key={entry.title} className="education-timeline-item">
+                <article
+                  key={`${activeItem.id}-${entry.phase}-${index}`}
+                  className="education-timeline-item"
+                >
                   <div className="education-timeline-rail" aria-hidden="true">
                     <span className="education-timeline-dot">{index + 1}</span>
                   </div>
@@ -202,9 +223,21 @@ export function EducationSection() {
                     </div>
                     <div className="education-timeline-image-frame">
                       <img
-                        className="education-timeline-image"
-                        src={activeItem.imagePath}
+                        className={`education-timeline-image ${entry.containImage ? "education-timeline-image-contain" : ""}`}
+                        src={entry.imagePath ?? activeItem.imagePath}
                         alt={activeItem.title}
+                        style={
+                          entry.imagePosition
+                            ? { objectPosition: entry.imagePosition }
+                            : undefined
+                        }
+                        onLoad={() =>
+                          setImageErrors((current) => {
+                            const next = { ...current };
+                            delete next[`${activeItem.id}-${index}`];
+                            return next;
+                          })
+                        }
                         onError={() =>
                           setImageErrors((current) => ({
                             ...current,
@@ -215,7 +248,7 @@ export function EducationSection() {
                       {imageErrors[`${activeItem.id}-${index}`] ? (
                         <div className="education-timeline-image-placeholder">
                           <span>{activeItem.imageLabel}</span>
-                          <small>{activeItem.imagePath}</small>
+                          <small>{entry.imagePath ?? activeItem.imagePath}</small>
                         </div>
                       ) : null}
                     </div>

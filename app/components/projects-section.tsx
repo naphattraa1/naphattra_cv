@@ -282,6 +282,104 @@ const projects: Project[] = [
   },
 ];
 
+const upcomingProjects: Project[] = [
+  {
+    id: "checkme",
+    eyebrow: "System Analysis & Design Project",
+    eyebrowClass: "eyebrow-blue",
+    title: "CheckMe",
+    summary:
+      "A hybrid platform combining social interaction and productivity tracking, enabling users to share goals, manage tasks, and collaborate through a community-driven system.",
+    tags: ["System Analysis", "ER Diagram", "DFD", "Scrum"],
+    buttonClass: "ghost-button-blue",
+    imageSrc: "/images/checkme.png",
+    imageAlt: "CheckMe project artwork",
+    detailText:
+      "A system analysis and design project focused on combining community interaction with personal productivity tracking.",
+    detailList: [
+      "Designed a hybrid platform linking goals, tasks, and social collaboration.",
+      "Focused on system architecture, ER design, and end-to-end DFD modeling.",
+      "Supported the concept with feasibility analysis and Agile Scrum workflow planning.",
+    ],
+    structuredDetail: {
+      title: "CheckMe – System Analysis & Design Project",
+      description:
+        "Designed a hybrid platform combining social interaction and productivity tracking, enabling users to share goals, manage tasks, and collaborate through a community-driven system.",
+      overview:
+        "CheckMe was developed as a system design concept that brings together productivity management and community engagement in one platform. The project focused on translating product logic into clear system architecture, data structure, and process modeling.",
+      myRole: {
+        label: "System Analysis & Design",
+        bullets: [
+          "Designed the platform structure around shared goals, task management, and collaboration.",
+          "Mapped system behavior through end-to-end process flows and analysis artifacts.",
+          "Connected product thinking with technical system planning.",
+        ],
+      },
+      keyContributions: [
+        "Designed a hybrid platform combining productivity tracking and social interaction.",
+        "Built ER Diagram and DFD models for the full system flow.",
+        "Supported the concept with feasibility analysis and Agile Scrum planning.",
+      ],
+      techStack: ["System Analysis", "ER Diagram", "DFD", "Scrum"],
+      outcome: [
+        "Translated a product concept into a complete system design case.",
+        "Strengthened database, flow modeling, and platform planning skills.",
+      ],
+      team: ["Role: System Analysis & Design"],
+    },
+  },
+  {
+    id: "hyperledger",
+    eyebrow: "Blockchain System Analysis",
+    eyebrowClass: "eyebrow-pink",
+    title: "Hyperledger Fabric",
+    summary:
+      "An in-depth analysis of enterprise blockchain architecture, focusing on network structure, consensus mechanisms, and security design in Hyperledger Fabric.",
+    tags: ["Blockchain", "Enterprise Systems", "Security Design", "Architecture"],
+    buttonClass: "ghost-button-pink",
+    imageSrc: "/images/blockchain.png",
+    imageAlt: "Hyperledger Fabric project artwork",
+    detailText:
+      "A technical analysis project examining how Hyperledger Fabric supports enterprise blockchain deployment.",
+    detailList: [
+      "Studied network architecture, consensus, and permissioned blockchain design.",
+      "Explored real-world applications across supply chain, finance, and healthcare.",
+      "Evaluated scalability, privacy, and implementation challenges in enterprise environments.",
+    ],
+    structuredDetail: {
+      title: "Hyperledger Fabric – Blockchain System Analysis",
+      description:
+        "Conducted an in-depth analysis of enterprise blockchain architecture using Hyperledger Fabric, focusing on network structure, consensus mechanisms, and security design.",
+      overview:
+        "This project examined how Hyperledger Fabric supports enterprise blockchain systems through modular architecture, permissioned access, and configurable network design. The analysis focused on how blockchain can be applied in practical business environments while balancing scalability, privacy, and system complexity.",
+      myRole: {
+        label: "System Analysis",
+        bullets: [
+          "Analyzed the structure and behavior of enterprise blockchain networks.",
+          "Evaluated consensus, privacy, and security design in Hyperledger Fabric.",
+          "Connected technical architecture with real-world implementation use cases.",
+        ],
+      },
+      keyContributions: [
+        "Conducted architecture analysis of Hyperledger Fabric network design.",
+        "Explored enterprise use cases in supply chain, finance, and healthcare.",
+        "Evaluated scalability, privacy, and implementation tradeoffs.",
+      ],
+      techStack: [
+        "Blockchain",
+        "Enterprise Systems",
+        "Security Design",
+        "Architecture",
+      ],
+      outcome: [
+        "Built a stronger understanding of enterprise blockchain systems.",
+        "Demonstrated analytical depth across security, architecture, and implementation constraints.",
+      ],
+      team: ["Role: System Analysis"],
+    },
+  },
+];
+
 export function ProjectsSection() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [isArchiveOpen, setIsArchiveOpen] = useState(false);
@@ -574,7 +672,7 @@ export function ProjectsSection() {
             </div>
 
             <div className="project-archive-grid">
-              {projects.map((project) => (
+              {[...projects, ...upcomingProjects].map((project) => (
                 <article key={project.id} className="project-archive-card">
                   <div className="project-archive-image-frame">
                     <Image

@@ -11,11 +11,35 @@ type ExplorationItem = {
   buttonClass: string;
   imageClass: string;
   imageFitClass?: string;
+  modalImageFitClass?: string;
+  modalFrameClass?: string;
   imageLabel: string;
   imagePath: string;
+  modalImagePath?: string;
   summary: string;
   text: string;
   details: string[];
+  sections?: {
+    title: string;
+    text: string;
+    details: string[];
+    imagePath?: string;
+    imageLabel?: string;
+  }[];
+  awards?: {
+    title: string;
+    project?: string;
+    preview: string;
+    description: string;
+    imagePath?: string;
+  }[];
+  certificatesIntro?: string;
+  certificates?: {
+    title: string;
+    issuer: string;
+    year: string;
+    buttonLabel?: string;
+  }[];
 };
 
 const explorationItems: ExplorationItem[] = [
@@ -28,22 +52,25 @@ const explorationItems: ExplorationItem[] = [
     buttonClass: "explore-link explore-link-pink",
     imageClass: "image-placeholder image-placeholder-square",
     imageFitClass: "exploration-image-contain",
+    modalImageFitClass: "exploration-panel-image-contain",
+    modalFrameClass: "exploration-panel-image-frame-wide",
     imageLabel: "Insert artwork",
     imagePath: "/images/internship.png",
+    modalImagePath: "/images/wisesight.png",
     summary:
-      "A selection of visual work developed through internships, studio practice, and creative experimentation.",
+      "Sales & Revenue Forecasting Simulation Tool – Wisesight Internship",
     text:
-      "This body of work reflects a balance between composition, storytelling, and material sensitivity across visual outcomes.",
+      "Designed and developed a simulation system to model sales acquisition and forecast revenue based on real business KPIs, including ARPA, LTV, and Win Rate.",
     details: [
-      "Developed artwork with attention to layout, color rhythm, and communication clarity.",
-      "Worked across creative briefs that required both concept thinking and hands-on execution.",
-      "Built confidence translating abstract ideas into polished visual pieces.",
+      "Built backend logic that translated business rules into calculable outputs for lead targets, revenue forecasting, and scenario simulation.",
+      "Developed an interactive dashboard with funnel visualization, scenario comparison, and validation logic for unrealistic assumptions.",
+      "Designed the system with reference to real Wisesight products such as ZocialEye, aligning the tool with actual business workflows and data-driven decision processes.",
     ],
   },
   {
     id: "certificate",
-    category: "Editorial",
-    title: "Certificate",
+    category: "Recognition",
+    title: "Certificates & Awards",
     accentClass: "accent-gold",
     eyebrowClass: "eyebrow eyebrow-gold",
     buttonClass: "explore-link explore-link-gold",
@@ -51,13 +78,52 @@ const explorationItems: ExplorationItem[] = [
     imageLabel: "Insert certificate image",
     imagePath: "/images/awards.png",
     summary:
-      "Certificates and recognitions that document learning milestones, professional growth, and continued development.",
+      "A curated record of awards and certificates that reflects achievement across innovation, competition, and continuous learning.",
     text:
-      "Presented as a curated record of progress, this section frames achievement through a consistent editorial lens.",
+      "This section brings together featured recognition and a growing archive of certificates in a cleaner, portfolio-ready format.",
     details: [
-      "Collected certificates from academic, technical, and extracurricular development.",
-      "Organized accomplishments into a clear narrative of growth and commitment.",
-      "Connected formal recognition with broader personal and professional direction.",
+      "Highlights both competitive achievement and ongoing professional development.",
+      "Balances a stronger featured award story with a flexible certificate archive.",
+      "Prepared so additional recognitions can be added later without redesign.",
+    ],
+    awards: [
+      {
+        title: "PSAT Health Hacks 2024 – 3rd Place Award",
+        project: "Med D Return",
+        preview:
+          "Recognized for Med D Return, a digital health innovation project designed to improve the return and management of unused medication through technology-driven solutions.",
+        description:
+          "Awarded 3rd Place in PSAT Health Hacks 2024 for Med D Return, an innovation project focused on improving the return and reuse of unused medication through digital technology. The concept combined healthcare impact with system thinking, proposing features such as OCR, QR Code, AI-assisted verification, location services, reward systems, and notification support to make medicine return safer, more accessible, and more sustainable.",
+        imagePath: "/images/awards.png",
+      },
+    ],
+    certificatesIntro:
+      "A selected collection of academic, competition, and professional certificates that reflect continuous learning, participation, and achievement across technology, innovation, and interdisciplinary projects.",
+    certificates: [
+      {
+        title: "Certificate Title",
+        issuer: "Issuer / Event",
+        year: "Year",
+        buttonLabel: "View",
+      },
+      {
+        title: "Certificate Title",
+        issuer: "Issuer / Event",
+        year: "Year",
+        buttonLabel: "View",
+      },
+      {
+        title: "Certificate Title",
+        issuer: "Issuer / Event",
+        year: "Year",
+        buttonLabel: "View",
+      },
+      {
+        title: "Certificate Title",
+        issuer: "Issuer / Event",
+        year: "Year",
+        buttonLabel: "View",
+      },
     ],
   },
   {
@@ -72,13 +138,37 @@ const explorationItems: ExplorationItem[] = [
     imageLabel: "Insert design image",
     imagePath: "/images/commerce.png",
     summary:
-      "Design work spanning interface systems, product storytelling, and digital touchpoints shaped for real user experience.",
+      "Commerce experiments across digital selling, campaign strategy, and product presentation.",
     text:
-      "The focus here is how structure, interaction, and visual identity come together to create clearer product experiences.",
+      "This work explores how storytelling, urgency, and platform-native content can be turned into conversion-focused commerce experiences.",
     details: [
-      "Explored UI direction through brand-led layouts and product presentation systems.",
-      "Considered both aesthetics and usability when shaping digital experiences.",
-      "Used design to connect business goals, user journeys, and visual coherence.",
+      "Combined content thinking with direct-to-customer selling.",
+      "Focused on campaign design, product presentation, and conversion flow.",
+      "Built practical experience across digital commerce and audience behavior.",
+    ],
+    sections: [
+      {
+        title: "Art Toy Sales via TikTok",
+        text:
+          "Launched and sold art toy products through TikTok, leveraging short-form content to drive visibility and engagement.",
+        details: [
+          "Focused on content-driven selling strategies, including product storytelling, trend-based videos, and audience interaction to increase reach and conversion.",
+          "Handled order fulfillment and managed high-volume sales during peak demand, gaining hands-on experience in digital commerce and customer behavior.",
+        ],
+        imagePath: "/images/tiktok.png",
+        imageLabel: "Attach art toy image",
+      },
+      {
+        title: "Custom Jersey Pre-order Campaign",
+        text:
+          "Developed and executed a pre-order campaign for custom-designed jerseys, managing the full process from concept design to online sales execution.",
+        details: [
+          "Applied limited-time drop strategies and content-based marketing to create urgency and drive conversions through social media platforms.",
+          "Coordinated production, pricing, and order fulfillment while maintaining consistency in brand positioning and visual presentation.",
+        ],
+        imagePath: "/images/jersey.png",
+        imageLabel: "Attach jersey campaign image",
+      },
     ],
   },
 ];
@@ -156,7 +246,9 @@ export function ExplorationSection() {
             </button>
 
             <div className="project-panel-grid exploration-panel-grid">
-              <div className="project-panel-copy">
+              <div
+                className={`project-panel-copy ${activeItem.sections || activeItem.awards || activeItem.certificates ? "exploration-panel-copy-wide" : ""}`}
+              >
                 <p className={activeItem.eyebrowClass}>{activeItem.category}</p>
                 <h2
                   id="exploration-panel-title"
@@ -165,37 +257,165 @@ export function ExplorationSection() {
                   {activeItem.title}
                 </h2>
                 <p className="project-panel-summary">{activeItem.summary}</p>
-                <p className="project-panel-text">{activeItem.text}</p>
-                <ul className="project-panel-list">
-                  {activeItem.details.map((detail) => (
-                    <li key={detail}>{detail}</li>
-                  ))}
-                </ul>
+                {activeItem.awards || activeItem.certificates ? (
+                  <div className="recognition-layout">
+                    <section className="recognition-awards">
+                      <p className="project-detail-label">Awards</p>
+                      {activeItem.awards?.map((award, index) => (
+                        <article
+                          key={`${activeItem.id}-award-${index}`}
+                          className="recognition-award-card"
+                        >
+                          <div className="recognition-award-copy">
+                            <p className="recognition-award-preview">
+                              {award.preview}
+                            </p>
+                            <h3 className="project-detail-subtitle">
+                              {award.title}
+                            </h3>
+                            {award.project ? (
+                              <p className="recognition-award-project">
+                                Project: {award.project}
+                              </p>
+                            ) : null}
+                            <p className="project-panel-text">
+                              {award.description}
+                            </p>
+                          </div>
+                          <div className="recognition-award-image-frame">
+                            {award.imagePath ? (
+                              <img
+                                className="recognition-award-image"
+                                src={award.imagePath}
+                                alt={award.title}
+                              />
+                            ) : (
+                              <div
+                                className={`${activeItem.imageClass} recognition-award-placeholder`}
+                                aria-label={`${award.title} placeholder`}
+                              >
+                                <span>{activeItem.imageLabel}</span>
+                              </div>
+                            )}
+                          </div>
+                        </article>
+                      ))}
+                    </section>
+
+                    <section className="recognition-certificates">
+                      <p className="project-detail-label">Certificates</p>
+                      <p className="project-panel-text">
+                        {activeItem.certificatesIntro}
+                      </p>
+                      <div className="recognition-certificate-grid">
+                        {activeItem.certificates?.map((certificate, index) => (
+                          <article
+                            key={`${activeItem.id}-certificate-${index}`}
+                            className="recognition-certificate-card"
+                          >
+                            <h3 className="recognition-certificate-title">
+                              {certificate.title}
+                            </h3>
+                            <p className="recognition-certificate-meta">
+                              {certificate.issuer}
+                            </p>
+                            <p className="recognition-certificate-year">
+                              {certificate.year}
+                            </p>
+                            {certificate.buttonLabel ? (
+                              <button
+                                type="button"
+                                className={`ghost-button ${activeItem.buttonClass} recognition-certificate-button`}
+                              >
+                                {certificate.buttonLabel}
+                              </button>
+                            ) : null}
+                          </article>
+                        ))}
+                      </div>
+                    </section>
+                  </div>
+                ) : activeItem.sections ? (
+                  <div className="exploration-detail-sections">
+                    {activeItem.sections.map((section, index) => (
+                      <section
+                        key={`${activeItem.id}-section-${index}`}
+                        className="exploration-detail-section"
+                      >
+                        <div className="exploration-detail-copy">
+                          <p className="project-detail-label">
+                            Section {index + 1}
+                          </p>
+                          <h3 className="project-detail-subtitle">
+                            {section.title}
+                          </h3>
+                          <p className="project-panel-text">{section.text}</p>
+                          <ul className="project-panel-list">
+                            {section.details.map((detail) => (
+                              <li key={detail}>{detail}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="exploration-detail-image-frame">
+                          {section.imagePath ? (
+                            <img
+                              className="exploration-detail-image"
+                              src={section.imagePath}
+                              alt={section.title}
+                            />
+                          ) : (
+                            <div
+                              className={`${activeItem.imageClass} exploration-detail-placeholder`}
+                              aria-label={`${section.title} placeholder`}
+                            >
+                              <span>{section.imageLabel ?? activeItem.imageLabel}</span>
+                            </div>
+                          )}
+                        </div>
+                      </section>
+                    ))}
+                  </div>
+                ) : (
+                  <>
+                    <p className="project-panel-text">{activeItem.text}</p>
+                    <ul className="project-panel-list">
+                      {activeItem.details.map((detail) => (
+                        <li key={detail}>{detail}</li>
+                      ))}
+                    </ul>
+                  </>
+                )}
               </div>
 
-              <div className="exploration-panel-visual">
-                <div className="exploration-panel-image-frame">
-                  <img
-                    className={`exploration-panel-image ${activeItem.imageFitClass ?? ""}`}
-                    src={activeItem.imagePath}
-                    alt={activeItem.title}
-                    onError={() =>
-                      setImageErrors((current) => ({
-                        ...current,
-                        [`panel-${activeItem.id}`]: true,
-                      }))
-                    }
-                  />
-                  {imageErrors[`panel-${activeItem.id}`] ? (
-                    <div
-                      className={`${activeItem.imageClass} exploration-panel-placeholder`}
-                      aria-label={`${activeItem.title} placeholder`}
-                    >
-                      <span>{activeItem.imageLabel}</span>
-                    </div>
-                  ) : null}
+              {!activeItem.sections &&
+              !activeItem.awards &&
+              !activeItem.certificates ? (
+                <div className="exploration-panel-visual">
+                  <div
+                    className={`exploration-panel-image-frame ${activeItem.modalFrameClass ?? ""}`}
+                  >
+                    <img
+                      className={`exploration-panel-image ${activeItem.modalImageFitClass ?? activeItem.imageFitClass ?? ""}`}
+                      src={activeItem.modalImagePath ?? activeItem.imagePath}
+                      alt={activeItem.title}
+                      onError={() =>
+                        setImageErrors((current) => ({
+                          ...current,
+                          [`panel-${activeItem.id}`]: true,
+                        }))
+                      }
+                    />
+                    {imageErrors[`panel-${activeItem.id}`] ? (
+                      <div
+                        className={`${activeItem.imageClass} exploration-panel-placeholder`}
+                        aria-label={`${activeItem.title} placeholder`}
+                      >
+                        <span>{activeItem.imageLabel}</span>
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
-              </div>
+              ) : null}
             </div>
           </div>
         </div>

@@ -242,7 +242,7 @@ export default function Home() {
           <div className="footer-links">
             <p>Email: naphattra@email.com</p>
             <p>LinkedIn: linkedin.com/in/yourname</p>
-            <p>GitHub: github.com/naphattraa</p>
+            <p>GitHub: github.com/naphattraa1</p>
           </div>
         </footer>
       </section>

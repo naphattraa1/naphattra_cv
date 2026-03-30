@@ -939,6 +939,11 @@ a {
   object-fit: cover;
 }
 
+.education-timeline-image-contain {
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.34);
+}
+
 .education-timeline-image-placeholder {
   position: absolute;
   inset: 0;
@@ -1102,6 +1107,10 @@ a {
   align-items: stretch;
 }
 
+.exploration-panel-copy-wide {
+  grid-column: 1 / -1;
+}
+
 .exploration-panel-visual {
   display: flex;
 }
@@ -1123,12 +1132,160 @@ a {
   object-fit: cover;
 }
 
+.exploration-panel-image-contain {
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.exploration-panel-image-frame-wide {
+  min-height: 380px;
+}
+
 .exploration-panel-placeholder {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
+}
+
+.exploration-detail-sections {
+  display: grid;
+  gap: 22px;
+}
+
+.exploration-detail-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(220px, 0.9fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.exploration-detail-copy {
+  display: grid;
+  gap: 10px;
+}
+
+.exploration-detail-image-frame {
+  min-height: 220px;
+  border: 1px solid rgba(55, 45, 52, 0.12);
+  background:
+    linear-gradient(135deg, rgba(110, 60, 87, 0.08), rgba(108, 115, 87, 0.08)),
+    rgba(255, 255, 255, 0.24);
+  overflow: hidden;
+}
+
+.exploration-detail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.exploration-detail-placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+.recognition-layout {
+  display: grid;
+  gap: 28px;
+}
+
+.recognition-awards,
+.recognition-certificates {
+  display: grid;
+  gap: 14px;
+}
+
+.recognition-award-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.92fr);
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid rgba(55, 45, 52, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.28)),
+    rgba(247, 243, 239, 0.56);
+}
+
+.recognition-award-copy {
+  display: grid;
+  gap: 10px;
+}
+
+.recognition-award-preview {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  line-height: 1.08;
+  color: rgba(92, 89, 70, 0.86);
+}
+
+.recognition-award-project {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(92, 89, 70, 0.82);
+}
+
+.recognition-award-image-frame {
+  min-height: 260px;
+  border: 1px solid rgba(55, 45, 52, 0.1);
+  background: rgba(255, 255, 255, 0.28);
+  overflow: hidden;
+}
+
+.recognition-award-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recognition-award-placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+.recognition-certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.recognition-certificate-card {
+  display: grid;
+  gap: 8px;
+  min-height: 180px;
+  padding: 18px;
+  border: 1px solid rgba(55, 45, 52, 0.1);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.recognition-certificate-title {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 34px;
+  line-height: 0.96;
+}
+
+.recognition-certificate-meta,
+.recognition-certificate-year {
+  margin: 0;
+  color: rgba(56, 52, 55, 0.72);
+}
+
+.recognition-certificate-year {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.recognition-certificate-button {
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 .skills {
@@ -1481,6 +1638,15 @@ a {
   .education-timeline-notes {
     margin-left: 64px;
     padding-right: 0;
+  }
+
+  .exploration-detail-section {
+    grid-template-columns: 1fr;
+  }
+
+  .recognition-award-card,
+  .recognition-certificate-grid {
+    grid-template-columns: 1fr;
   }
 
 }
